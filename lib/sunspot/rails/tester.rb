@@ -19,6 +19,7 @@ module Sunspot
               $stderr.reopen('/dev/null')
               $stdout.reopen('/dev/null')
               server.run
+              Kernel.exit!
             end
             kill_at_exit
             give_feedback
