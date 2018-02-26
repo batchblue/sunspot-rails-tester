@@ -33,8 +33,9 @@ module Sunspot
         def kill_at_exit
           at_exit {
             Process.kill('TERM', pid)
-            if port && server.respond_to?(:exec_in_solr_executable_directory)
-              command = ['./solr', 'stop', '-p', "#{port}"]
+            p = port.to_s || "8983"
+            if server.respond_to?(:exec_in_solr_executable_directory)
+              command = ['./solr', 'stop', '-p', p]
               server.exec_in_solr_executable_directory(command)
             end
           }
