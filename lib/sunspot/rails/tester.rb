@@ -48,8 +48,8 @@ module Sunspot
       
         def starting
           sleep(1)
-          Net::HTTP.get_response(URI.parse(uri))
-          false
+          res = Net::HTTP.get_response(URI.parse(uri))
+          res.code == '503'
         rescue Errno::ECONNREFUSED
           true
         end
