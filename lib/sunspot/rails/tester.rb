@@ -59,7 +59,7 @@ module Sunspot
         end
       
         def uri
-          "http://#{hostname}:#{port}#{path}"
+          "http://#{hostname}:#{port}#{path}/ping"
         end
         
         def_delegators :configuration, :hostname, :port, :path
